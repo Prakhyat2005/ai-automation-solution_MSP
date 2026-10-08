@@ -1,0 +1,72 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "npm: dev",
+      "type": "npm",
+      "script": "dev",
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "vite: preview",
+      "type": "shell",
+      "command": "npx vite preview",
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "npm: test:run",
+      "type": "npm",
+      "script": "test:run"
+    },
+    {
+      "label": "npm: build",
+      "type": "npm",
+      "script": "build"
+    },
+    {
+      "label": "npm: ws:mock",
+      "type": "npm",
+      "script": "ws:mock",
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "backend: uvicorn",
+      "type": "shell",
+      "command": "python3 -m uvicorn backend.app:app --host 0.0.0.0 --port 8000 --reload",
+      "isBackground": true,
+      "problemMatcher": [],
+      "options": {
+        "env": {
+          "ENABLE_REMEDIATION": "false"
+        }
+      }
+    },
+    {
+      "label": "backend: uvicorn (remediation on)",
+      "type": "shell",
+      "command": "python3 -m uvicorn backend.app:app --host 0.0.0.0 --port 8000 --reload",
+      "isBackground": true,
+      "problemMatcher": [],
+      "options": {
+        "env": {
+          "ENABLE_REMEDIATION": "true"
+        }
+      }
+    },
+    {
+      "label": "dev: full",
+      "dependsOn": ["npm: dev", "npm: ws:mock", "backend: uvicorn"],
+      "dependsOrder": "parallel",
+      "problemMatcher": []
+    },
+    {
+      "label": "dev: full (remediation on)",
+      "dependsOn": ["npm: dev", "npm: ws:mock", "backend: uvicorn (remediation on)"],
+      "dependsOrder": "parallel",
+      "problemMatcher": []
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "pwa-chrome",
+      "request": "launch",
+      "name": "Vite Dev (Chrome)",
+      "url": "http://localhost:3000/",
+      "webRoot": "${workspaceFolder}",
+      "preLaunchTask": "npm: dev"
+    },
+    {
+      "type": "pwa-chrome",
+      "request": "launch",
+      "name": "Vite Preview (Chrome)",
+      "url": "http://localhost:4173/",
+      "webRoot": "${workspaceFolder}",
+      "preLaunchTask": "vite: preview"
+    },
+    {
+      "type": "pwa-chrome",
+      "request": "launch",
+      "name": "Full Dev Stack (Chrome)",
+      "url": "http://localhost:3000/",
+      "webRoot": "${workspaceFolder}",
+      "preLaunchTask": "dev: full"
+    },
+    {
+      "type": "pwa-chrome",
+      "request": "launch",
+      "name": "Full Dev Stack + Remediation (Chrome)",
+      "url": "http://localhost:3000/",
+      "webRoot": "${workspaceFolder}",
+      "preLaunchTask": "dev: full (remediation on)"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Vitest: Run Tests",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "test:run"],
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}
